@@ -49,7 +49,7 @@ class Room extends Scene {
         }
         else
         {
-            this.engine.addInteraction("Do something", "x", "y");
+            //this.engine.addInteraction("Do something", "x", "y");
             // navigation cells come in a 3x3 grid
             // row 1
             this.engine.addTextCell();
@@ -81,11 +81,42 @@ class Room extends Scene {
         this.engine.transition();
     }
     handleNavigation(x,y,player) {
-        this.engine.gotoScene(Room, x, y, player);
+        var roomData = this.engine.storyData.rooms[x + "_" + y];
+
+        if (this.allowedEntryIntoRoom(roomData, player.items)) {
+            this.engine.gotoScene(Room, x, y, player);
+        } else {
+            this.engine.gotoScene(Room, this.x, this.y, player);
+        }
+
+
+        
+    }
+
+    allowedEntryIntoRoom(roomData, inventory) {
+        var requiredItems = roomData.requires || [];
+        
+        for (var item of requiredItems) {
+            if (!inventory[item]) {
+                this.engine.show("Locked! You need " + this.engine.itemString(item) + " to enter this room.");
+                return false;
+            }
+            
+        }
+
+        return true;
     }
 
     handleInteraction(a,b)
     {
+        if (a == "catbone") {
+            this.engine.show("WOW!!! You gave your cat a bone... why.. why a cat?");
+        }
+
+        if (a == "dogbone") {
+            this.engine.show("You gave your dog a bone. Hey- you could write a nursery rhyme about this.");
+        }
+
         if (a == "x" && b == "y") {
             this.engine.show("Interaction successful!");
         }
@@ -93,6 +124,16 @@ class Room extends Scene {
 
     interactions(inventory, roomItems)
     {
+        if (("cat2" in inventory || "dog" in inventory) && roomItems.includes("bone")) 
+        {
+            if ("cat2" in inventory) {
+                this.engine.addInteraction("Give the cat a bone", "catbone");
+            }
+            else if ("dog" in inventory) {
+                this.engine.addInteraction("Give the dog a bone", "dogbone");
+            }
+            
+        }
     }
 
     endGame(player)
