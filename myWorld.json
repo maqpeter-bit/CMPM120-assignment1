@@ -2,44 +2,80 @@
     "title": "A grid-based world.",
     "credits": "Created by Markus Eger (meger@ucsc.edu).",
     "start": {"x": 0, "y": 0},
-    "exit": {"x": 2, "y": 2},
+    "exit": {"x": 3, "y": 3},
     "rooms": {
         "0_0": {
             "name": "Entrance",
-            "description": "Welcome to the entrance.",
-            "items": ["cat2", "banana", "coconut"]
+            "description": "A gloomy roof sits above a dark, dilapidated door made of wood. The wood is mushy and wet, most likely due to the fact that it has stormy outside. A cat sits at the entrance, eager to join you.",
+            "items": ["cat2"]
         },
         "1_0": {
             "name": "Hallway",
-            "description": "An almost empty hallway.",
+            "description": "A hallway which has shown signs of aging, with cobwebs hanging in the corners. No one has maintained this place in a long time.",
             "items": ["bone"]
-        },
-        "0_1": {
-            "name": "The sitting room",
-            "description": "Two couches next to a coffee table.",
-            "items": ["coffee", "newspaper", "key"]
         },
         "2_0": {
             "name": "Main Hall",
-            "description": "The main area of the house",
-            "items": ["cat2", "vampire", "telephone", "nazar_amulet"],
+            "description": "The main area of the house- or so it was once. A place a laughter and congregation now lies silent and dormant.",
+            "items": ["kitchen key", "drill"],
             "requires": ["key"]
+        },
+        "3_0": {
+            "name": "Metal wall",
+            "description": "At the other side of the door is a completely solid metal wall. Faint creaking can be heard in the distance. It is unknown why this would ever be added to such a location.",
+            "items": ["Metal wall"]
+        },
+        "0_1": {
+            "name": "Apple tree courtyard",
+            "description": "You feel as if you were once here- that is, in another time. There are no apples to be had here. Nor no flowers to be plucked. A small golden key sits on the ground, caked in mud.",
+            "items": ["key"]
+        },
+        "1_1": {
+            "name": "The trash room",
+            "description": "A large chute stands in the center, with incredibly old trash bags sitting in heaping piles around it. You would not dare go down that chute if your life depended on it.",
+            "items": ["trash", "dumpster"]
+        },
+        "2_1": {
+            "name": "The void",
+            "description": "This room is completely white. The floors, ceiling, and walls are so bright that you must rely on touch to navigate around the room. While moving through it, you swear you felt something crawling on your hand.",
+            "items": ["A small bug"]
+        },
+        "3_1": {
+            "name": "A generic room",
+            "description": "Out of all the places in this absurd environment, this room is pristine. A single figure stands in the center, but they don't seem to notice you, nor pay any mind.",
+            "items": ["The generic room man."]
         },
         "0_2": {
             "name": "Kitchen",
-            "description": "A very fancy kitchen. It smells like pine cones for some reason.",
-            "items": ["cat2", "broccoli", "pie", "pretzel"],
-            "requires": ["nazar_amulet"]
+            "description": "No one has cooked in this kitchen for years. It smells like burnt ash. Bones lie on the floor. Somehow, every food remaining has molded over.",
+            "items": ["bone", "bone", "bone", "moldy broccoli", "moldy pie", "moldy pretzel"],
+            "requires": ["kitchen key"]
         },
         "1_2": {
             "name": "Pantry",
-            "description": "There should be food stored here, but you find something else instead.",
-            "items": ["giraffe", "hammer"]
+            "description": "There should be food stored here, but there doesn't appear to be anything of interest besides that of a hammer. Perhaps you could use this to take down some boards?",
+            "items": ["hammer"]
         },
         "2_2": {
-            "name": "Treasure room",
-            "description": "You have made it to your destination! Let's count how many treasures you were able to collect on your way here.",
-            "items": []
+            "name": "Bedrooms",
+            "description": "Stacks upon stacks of beds which can only imply that everyone in this place slept in the same area. The beds tower up to absurd levels of height.",
+            "items": ["Matress", "Blanket"]
+        },
+        "3_2": {
+            "name": "Cellar",
+            "description": "You somehow found yourself in the cellar. The cobwebs down here have grown to undistinguishable levels. You dare not travel any further down.",
+            "items": ["cobweb"]
+        },
+        "0_3": {
+            "name": "The study room",
+            "description": "A single chair with a desk sits in the very center of the room. A single lightbulb shines directly over it. The lightbulb hangs on a small thin string that swings back and forth.",
+            "items": ["lightbulb"]
+        },
+        "3_3": {
+            "name": "Exit",
+            "description": "You reach the exit. A wave of relief fills your soul. Whatever remained in that house will be long behind you.",
+            "items": [],
+            "requires": ["drill", "hammer"]
         }
     }
 }

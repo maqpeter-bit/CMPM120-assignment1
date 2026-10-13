@@ -117,6 +117,14 @@ class Room extends Scene {
             this.engine.show("You gave your dog a bone. Hey- you could write a nursery rhyme about this.");
         }
 
+        if (a == "catcomfort") {
+            this.engine.show("The man from the generic room crouched down and lured the cat over to the matress. He took the bone from you (without knowing you were there), and played with the cat for what felt like a few minutes. Everyone was happier when they finished playing.");
+        }
+
+        if (a == "metalsmash") {
+            this.engine.show("WHAT WERE YOU THINKING?! Your ears ring violently and you feel as if you've gone deaf.");
+        }
+
         if (a == "x" && b == "y") {
             this.engine.show("Interaction successful!");
         }
@@ -134,6 +142,16 @@ class Room extends Scene {
             }
             
         }
+
+        if ((("The generic room man." in inventory) && ("bone" in inventory)) && roomItems.includes("Matress")) 
+        {
+            this.engine.addInteraction("Ask the generic room man to comfort the cat", "catcomfort");
+        }
+
+        if (("hammer" in inventory) && roomItems.includes("Metal wall")) 
+        {
+            this.engine.addInteraction("Slam your hammer into the metal wall", "metalsmash");
+        }
     }
 
     endGame(player)
@@ -147,6 +165,10 @@ class Room extends Scene {
         this.engine.show(items);
         this.engine.show("Total steps taken: " + player.steps);
         let score = Object.keys(player.items).length /player.steps;
+        if ("lightbulb" in player.items) {
+           this.engine.show("Wow! You had the special lightbulb! Have these extra points!");
+           score += 0.3; 
+        }
         this.engine.show("Your score is: " + score);
         this.engine.show(this.engine.storyData.credits);
     }
